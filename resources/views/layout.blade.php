@@ -12,9 +12,26 @@
 
 <header>
     <nav>
-        <div class="nav-top">
-            <div class="container">
-                <form class="d-flex justify-content-end">
+        <div class="nav-top d-flex justify-content-between">
+            <div class="container d-flex justify-content-between">
+                <ul class="nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ route('admin.artist.create') }}">Artist Add</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.album.create') }}">Album Add</a></li>
+                            <li><a class="dropdown-item" href="#">Track Add</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                    </li>
+                </ul>
+
+                <form class="d-flex justify-content-between">
                     <input class="form-control" type="search" aria-label="Search">
                     <button class="btn btn-primary text-white" type="submit">Search</button>
                 </form>
@@ -34,7 +51,7 @@
     <nav>
         <div class="nav-top">
             <div class="container">
-                <div class="d-flex justify-content-center ali">
+                <div class="d-flex justify-content-center align-items-center">
                     <p>Submit Lyrics</p>
                     <p>Soundtracks</p>
                     <p>Facebook</p>

@@ -16,13 +16,13 @@ class CreateAlbumsTable extends Migration
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('artist_id');
-            $table->unsignedBigInteger('recordLabel_id');
+            $table->unsignedBigInteger('record_label_id');
             $table->longText('description');
             $table->boolean('is_single');
             $table->timestamps();
 
             $table->foreign('artist_id')->references('id')->on('artists')->onDelete('restrict');
-            $table->foreign('recordLabel_id')->references('id')->on('record_labels')->onDelete('restrict');
+            $table->foreign('record_label_id')->references('id')->on('record_labels')->onDelete('restrict');
         });
     }
 

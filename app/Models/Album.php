@@ -13,7 +13,8 @@ class Album extends Model
         'artist_id',
         'release_year',
         'description',
-        'recordLabel_id',
-        'is_single'
+        'record_label_id',
+        'is_single',
+        'name'
     ];
 }

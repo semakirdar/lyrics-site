@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/admin/album/create', [AlbumController::class, 'create'])->name('admin.album.create');
+Route::post('/admin/album/store', [AlbumController::class, 'store'])->name('admin.album.store');
+Route::get('/admin/artist/create', [ArtistController::class, 'create'])->name('admin.artist.create');
+Route::post('/admin/artist/store', [ArtistController::class, 'store'])->name('admin.artist.store');
