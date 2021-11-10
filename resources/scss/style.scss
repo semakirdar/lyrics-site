@@ -1,0 +1,24 @@
+nav {
+    .nav-top {
+        padding: 10px;
+        background-color: #9999cb;
+
+        form {
+            input {
+                width: unset;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            button {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+
+    .nav-bottom {
+        background-color: #666698;
+        height: 40px;
+    }
+}
