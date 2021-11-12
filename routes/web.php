@@ -16,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/admin/album/create', [AlbumController::class, 'create'])->name('admin.album.create');
-Route::post('/admin/album/store', [AlbumController::class, 'store'])->name('admin.album.store');
-Route::get('/admin/artist/create', [ArtistController::class, 'create'])->name('admin.artist.create');
-Route::post('/admin/artist/store', [ArtistController::class, 'store'])->name('admin.artist.store');
+
+Route::get('/admin/albums/index', [AlbumController::class, 'index'])->name('admin.albums.index');
+Route::get('/admin/albums/create', [AlbumController::class, 'create'])->name('admin.albums.create');
+Route::post('/admin/albums/store', [AlbumController::class, 'store'])->name('admin.albums.store');
+Route::get('/admin/albums/{id}/edit', [AlbumController::class, 'edit'])->name('admin.albums.edit');
+Route::get('/admin/albums/{id}/update', [AlbumController::class, 'update'])->name('admin.albums.update');
+
+Route::get('/admin/artists/create', [ArtistController::class, 'create'])->name('admin.artists.create');
+Route::post('/admin/artists/store', [ArtistController::class, 'store'])->name('admin.artists.store');

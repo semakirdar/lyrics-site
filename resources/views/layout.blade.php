@@ -21,8 +21,9 @@
                             Admin
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('admin.artist.create') }}">Artist Add</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.album.create') }}">Album Add</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.artists.create') }}">Artist Add</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album Add</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a></li>
                             <li><a class="dropdown-item" href="#">Track Add</a></li>
                         </ul>
                     </li>

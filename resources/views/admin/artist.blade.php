@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="new-create">
-            <form method="post" action="{{route('admin.artist.store')}}">
+            <form method="post" action="{{route('admin.artists.store')}}">
                 @csrf
                 <div class="mb-3">
                     <label>name</label>

@@ -61,74 +61,25 @@
                 <div class="hot-albums text-center py-5">
                     <h2>HOT ALBUMS</h2>
                     <div class="row pt-3">
-                        <div class="col-sm-12 col-md-12 col-lg-3 text-center">
-                            <div class="hot-albums-item">
-                                <div class="album-image">
-                                    <a href="#">
-                                        <img src="{{ asset('images/album-image.jpeg') }}">
-                                    </a>
-                                </div>
-                                <div class="album-text mt-3">
-                                    <a href="#">
-                                        <p class="text-primary">Abba</p>
-                                    </a>
-                                    <a href="#">
-                                        <p>"Voyage"</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-3">
-                            <div class="hot-albums-item">
-                                <div class="album-image">
-                                    <a href="#">
-                                        <img src="{{ asset('images/album-image.jpeg') }}">
-                                    </a>
-                                </div>
-                                <div class="album-text mt-3">
-                                    <a href="#">
-                                        <p class="text-primary">Abba</p>
-                                    </a>
-                                    <a href="#">
-                                        <p>"Voyage"</p>
-                                    </a>
+                        @foreach($albums as $album)
+                            <div class="col-sm-12 col-md-12 col-lg-3">
+                                <div class="hot-albums-item">
+                                    <div class="album-image">
+                                        <a href="#">
+                                            <img src="{{ asset('images/album-image.jpeg') }}">
+                                        </a>
+                                    </div>
+                                    <div class="album-text mt-3">
+                                        <a href="#">
+                                            <p>{{$album->name}}</p>
+                                        </a>
+                                        <a href="#">
+                                            <p class="artist-name">{{ $album->artist->name }}</p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-3">
-                            <div class="hot-albums-item">
-                                <div class="album-image">
-                                    <a href="#">
-                                        <img src="{{ asset('images/album-image.jpeg') }}">
-                                    </a>
-                                </div>
-                                <div class="album-text mt-3">
-                                    <a href="#">
-                                        <p class="text-primary">Abba</p>
-                                    </a>
-                                    <a href="#">
-                                        <p>"Voyage"</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-3">
-                            <div class="hot-albums-item">
-                                <div class="album-image">
-                                    <a href="#">
-                                        <img src="{{ asset('images/album-image.jpeg') }}">
-                                    </a>
-                                </div>
-                                <div class="album-text mt-3">
-                                    <a href="#">
-                                        <p class="text-primary">Abba</p>
-                                    </a>
-                                    <a href="#">
-                                        <p>"Voyage"</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
