@@ -15,8 +15,8 @@
                 @foreach($albums as $album)
                     <tr>
                         <td>{{ $album->id }}</td>
-                        <td>{{ $album->artist_id }}</td>
-                        <td>{{ $album->record_label_id }}</td>
+                        <td>{{ $album->artist->name}}</td>
+                        <td>{{ $album->recordLabel->name }}</td>
                         <td>{{ $album->name }}</td>
                         <td>{{ $album->is_single }}</td>
                         <td><a href="{{ route('admin.albums.edit', ['id' => $album->id]) }}"

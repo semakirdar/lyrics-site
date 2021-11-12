@@ -24,4 +24,9 @@ class Album extends Model implements HasMedia
     {
         return $this->belongsTo(Artist::class);
     }
+
+    public function recordLabel()
+    {
+        return $this->belongsTo(RecordLabel::class);
+    }
 }

@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3">
                     <label>Record</label>
-                    <select class="form-control" name="recordLabel_id">
+                    <select class="form-control" name="record_label_id">
                         @foreach($records as $record)
                             <option value="{{ $record->id }}">{{ $record->name }}</option>
                         @endforeach

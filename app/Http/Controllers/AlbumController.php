@@ -12,7 +12,7 @@ class AlbumController extends Controller
 
     public function index()
     {
-        $albums = Album::query()->get();
+        $albums = Album::query()->with(['artist', 'recordLabel'])->get();
         return view('admin.albums.index', [
             'albums' => $albums
         ]);
@@ -35,7 +35,7 @@ class AlbumController extends Controller
             'name' => $request->name,
             'release_year' => $request->release_year,
             'description' => $request->description,
-            'record_label_id' => $request->recordLabel_id,
+            'record_label_id' => $request->record_label_id,
             'is_single' => $request->has('is_single')
 
         ]);
@@ -58,8 +58,25 @@ class AlbumController extends Controller
 
     }
 
-    public function update($id)
+    public function update($id, Request $request)
     {
+        $album = Album::query()->where('id', $id)->firstOrFail();
+        $album->update([
+            'artist_id' => $request->artist_id,
+            'name' => $request->name,
+            'release_year' => $request->release_year,
+            'description' => $request->description,
+            'record_label_id' => $request->record_label_id,
+            'is_single' => $request->has('is_single')
+        ]);
+        if ($request->has('image') && !empty($request->image)) {
+            $media = $album->getFirstMedia();
+            if ($media)
+                $media->delete();
+            $album->addMediaFromRequest('image')->toMediaCollection();
+        }
+
+        return redirect()->route('admin.albums.index');
 
     }
 }

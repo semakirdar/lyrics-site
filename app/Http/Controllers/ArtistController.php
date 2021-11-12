@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 
 class ArtistController extends Controller
 {
+    public function index()
+    {
+        $artists = Artist::query()->get();
+        return view('admin.artists.index', [
+            'artists' => $artists
+        ]);
+    }
+
     public function create()
     {
-        return view('admin.artist');
+        return view('admin.artists.create');
 
     }
 
@@ -23,4 +31,20 @@ class ArtistController extends Controller
 
         return redirect()->back();
     }
+
+    public function edit($id)
+    {
+        $artist = Artist::query()->where('id', $id)->first();
+        return view('admin.artists.edit', [
+            'artist' => $artist
+        ]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $artist = Artist::query()->where('id', $id)->first();
+        return redirect()->route('admin.artists.index');
+    }
+
+
 }

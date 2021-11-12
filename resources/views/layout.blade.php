@@ -24,6 +24,7 @@
                             <li><a class="dropdown-item" href="{{ route('admin.artists.create') }}">Artist Add</a></li>
                             <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album Add</a></li>
                             <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.artists.index') }}">Artist List</a></li>
                             <li><a class="dropdown-item" href="#">Track Add</a></li>
                         </ul>
                     </li>

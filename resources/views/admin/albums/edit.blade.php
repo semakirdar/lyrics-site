@@ -28,7 +28,7 @@
                 </div>
                 <div class="mb-3">
                     <label>Record</label>
-                    <select class="form-control" name="recordLabel_id">
+                    <select class="form-control" name="record_label_id">
                         @foreach($records as $record)
                             <option
                                 {{ $album->record_label_id == $record->id ? 'selected' : ''}} value="{{ $record->id }}">{{ $record->name }}</option>
@@ -43,7 +43,7 @@
                     <label>Image</label>
                     <input type="file" name="image" class="form-control">
                 </div>
-                <button class="btn btn-primary">CREATE</button>
+                <button class="btn btn-primary">EDIT</button>
             </form>
         </div>
     </div>

@@ -17467,6 +17467,7 @@ nav .nav-bottom {
 footer .nav-top p {
   color: white;
   padding-right: 25px;
+  margin: 0;
 }
 
 .new-create input, .new-create textarea, .new-create select {
