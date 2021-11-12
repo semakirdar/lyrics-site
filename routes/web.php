@@ -23,6 +23,7 @@ Route::get('/admin/albums/create', [AlbumController::class, 'create'])->name('ad
 Route::post('/admin/albums/store', [AlbumController::class, 'store'])->name('admin.albums.store');
 Route::get('/admin/albums/{id}/edit', [AlbumController::class, 'edit'])->name('admin.albums.edit');
 Route::post('/admin/albums/{id}/update', [AlbumController::class, 'update'])->name('admin.albums.update');
+Route::get('/admin/{albumId}/albums/show', [AlbumController::class, 'show'])->name('admin.albums.show');
 
 Route::get('/admin/artists/index', [ArtistController::class, 'index'])->name('admin.artists.index');
 Route::get('/admin/artists/create', [ArtistController::class, 'create'])->name('admin.artists.create');

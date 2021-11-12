@@ -15,4 +15,6 @@ class Track extends Model
         'lyric',
         'genre_id'
     ];
+
+
 }

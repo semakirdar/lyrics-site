@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use App\Models\Artist;
 use App\Models\RecordLabel;
+use App\Models\Track;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
@@ -80,8 +81,11 @@ class AlbumController extends Controller
 
     }
 
-    public function show()
+    public function show($albumId)
     {
-
+        $album = Album::query()->with('tracks')->where('id', $albumId)->first();
+        return view('album-show', [
+            'album' => $album
+        ]);
     }
 }

@@ -65,13 +65,13 @@
                             <div class="col-sm-12 col-md-12 col-lg-3">
                                 <div class="hot-albums-item mt-4">
                                     <div class="album-image">
-                                        <a href="#">
+                                        <a href="{{ route('admin.albums.show', ['albumId' => $album->id]) }}">
                                             <img src="{{ $album->getFirstMediaUrl() }}">
                                         </a>
                                     </div>
                                     <div class="album-text mt-3">
-                                        <a href="#">
-                                            <p>{{$album->name}}</p>
+                                        <a href="{{ route('admin.albums.show', ['albumId' => $album->id]) }}">
+                                            <p>{{ $album->name }}</p>
                                         </a>
                                         <a href="#">
                                             <p class="artist-name">{{ $album->artist->name }}</p>
