@@ -28,6 +28,7 @@ class ArtistController extends Controller
             'bio' => $request->bio,
             'country' => $request->country
         ]);
+        $artist->addMediaFromRequest('image')->toMediaCollection();
 
         return redirect()->back();
     }
@@ -43,6 +44,18 @@ class ArtistController extends Controller
     public function update($id, Request $request)
     {
         $artist = Artist::query()->where('id', $id)->first();
+        $artist->update([
+            'name' => $request->name,
+            'bio' => $request->bio,
+            'country' => $request->country
+        ]);
+
+        if ($request->has('image') && !empty($request->image)) {
+            $media = $artist->getFirstMedia();
+            if ($media)
+                $media->delete();
+            $artist->addMediaFromRequest('image')->toMediaCollection();
+        }
         return redirect()->route('admin.artists.index');
     }
 

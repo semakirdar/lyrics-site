@@ -79,4 +79,9 @@ class AlbumController extends Controller
         return redirect()->route('admin.albums.index');
 
     }
+
+    public function show()
+    {
+
+    }
 }

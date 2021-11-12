@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,7 @@ Route::get('/admin/artists/create', [ArtistController::class, 'create'])->name('
 Route::post('/admin/artists/store', [ArtistController::class, 'store'])->name('admin.artists.store');
 Route::get('/admin/artists/{id}/edit', [ArtistController::class, 'edit'])->name('admin.artists.edit');
 Route::post('/admin/artists/{id}/update', [ArtistController::class, 'update'])->name('admin.artists.update');
+
+Route::get('/admin/tracks/create', [TrackController::class, 'create'])->name('admin.tracks.create');
+Route::post('/admin/tracks/store', [TrackController::class, 'store'])->name('admin.tracks.store');
+

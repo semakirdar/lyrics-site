@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-
 <header>
     <nav>
         <div class="nav-top d-flex justify-content-between">
@@ -21,11 +20,14 @@
                             Admin
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('admin.artists.create') }}">Artist Add</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album Add</a></li>
                             <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album Add</a></li>
+
                             <li><a class="dropdown-item" href="{{ route('admin.artists.index') }}">Artist List</a></li>
-                            <li><a class="dropdown-item" href="#">Track Add</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.artists.create') }}">Artist Add</a></li>
+                           
+                            <li><a class="dropdown-item" href="#">Track List</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.tracks.create') }}">Track Add</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -44,11 +46,9 @@
         </div>
     </nav>
 </header>
-
 <div>
     @yield('content')
 </div>
-
 <footer>
     <nav>
         <div class="nav-top">
@@ -66,8 +66,6 @@
         </div>
     </nav>
 </footer>
-
-
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

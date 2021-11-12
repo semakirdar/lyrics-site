@@ -63,7 +63,7 @@
                     <div class="row pt-3">
                         @foreach($albums as $album)
                             <div class="col-sm-12 col-md-12 col-lg-3">
-                                <div class="hot-albums-item mt-3">
+                                <div class="hot-albums-item mt-4">
                                     <div class="album-image">
                                         <a href="#">
                                             <img src="{{ $album->getFirstMediaUrl() }}">
