@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Artist;
 use App\Models\Track;
 use Illuminate\Http\Request;
@@ -69,9 +70,11 @@ class ArtistController extends Controller
             })
             ->limit(5)
             ->get();
+        $albums = Album::query()->where('artist_id', $artistId)->get();
         return view('artist-show', [
             'artist' => $artist,
-            'tracks' => $tracks
+            'tracks' => $tracks,
+            'albums' => $albums
         ]);
     }
 
