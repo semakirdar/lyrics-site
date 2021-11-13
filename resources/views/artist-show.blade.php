@@ -22,30 +22,34 @@
             <div>
 
                 <div class="albums my-5">
-                    @foreach($albums as $album)
-                        <div class="album-item">
-                            <a href="{{route('albums.show', ['albumId' => $album->id])}}">
-                                <img src="{{ $album->getFirstMediaUrl() }}">
-                            </a>
-                            <div class="album-info mt-3">
-                                <div>
-                                    <a class="text-decoration-none text-white"
-                                       href="{{route('albums.show', ['albumId' => $album->id])}}">
-                                        {{$album->name}}
+                    <div class="row">
+                        @foreach($albums as $album)
+                            <div class="col-sm-12 col-md-12 col-lg-3">
+                                <div class="album-item">
+                                    <a href="{{route('albums.show', ['albumId' => $album->id])}}">
+                                        <img src="{{ $album->getFirstMediaUrl() }}">
                                     </a>
-                                </div>
-                                <div class="text-muted">
-                                    <span>{{ $album->is_single == 0 ?'Album' : 'Single' }}</span> -
-                                    <span>
+                                    <div class="album-info mt-3">
+                                        <div>
+                                            <a class="text-decoration-none text-white"
+                                               href="{{route('albums.show', ['albumId' => $album->id])}}">
+                                                {{$album->name}}
+                                            </a>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span>{{ $album->is_single == 0 ?'Album' : 'Single' }}</span> -
+                                            <span>
                                     <a class="text-decoration-none text-white"
                                        href="{{ route('artists.show', ['artistId' => $album->artist->id ]) }}">
                                         {{ $album->artist->name }}
                                     </a>
                                 </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <h3>SONG LYRICS</h3>
                     <div class="track-lyrics mt-3">
-                        {{ $track->lyric }}
+                        {!! $track->lyric !!}
                     </div>
                 </div>
             </div>
