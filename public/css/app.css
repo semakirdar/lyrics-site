@@ -17509,3 +17509,12 @@ nav {
 .artist-detail .tracks .track-item:last-child {
   border-bottom: none;
 }
+
+.track-detail {
+  overflow: hidden;
+  height: calc(100vh - 56px);
+}
+.track-detail .track-lyrics {
+  max-height: 500px;
+  overflow-y: scroll;
+}

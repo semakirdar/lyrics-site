@@ -120,6 +120,17 @@ nav {
     }
 }
 
+.track-detail {
+    overflow: hidden;
+    height: calc(100vh - 56px);
+
+    .track-lyrics {
+        max-height: 500px;
+        overflow-y: scroll;
+    }
+
+}
+
 
 
 

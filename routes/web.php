@@ -34,7 +34,7 @@ Route::post('/admin/artists/{id}/update', [ArtistController::class, 'update'])->
 
 Route::get('/admin/tracks/create', [TrackController::class, 'create'])->name('admin.tracks.create');
 Route::post('/admin/tracks/store', [TrackController::class, 'store'])->name('admin.tracks.store');
-
+Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tracks.show');
 
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
 

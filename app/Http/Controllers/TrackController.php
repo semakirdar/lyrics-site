@@ -35,5 +35,13 @@ class TrackController extends Controller
         return redirect()->back();
     }
 
+    public function show($trackId)
+    {
+        $track = Track::query()->with('album')->where('id', $trackId)->first();
+        return view('track-show', [
+            'track' => $track
+        ]);
+
+    }
 
 }

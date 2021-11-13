@@ -11,7 +11,13 @@
                             <div class="track-item mb-2">
                                 <img src="{{ $track->album->getFirstMediaUrl() }}">
                                 <div class="track-info">
-                                    <div class="track">{{ $track->name }}</div>
+                                    <div class="track">
+                                        <a class="text-decoration-none text-white"
+                                           href="{{ route('tracks.show', ['trackId' => $track->id]) }}">
+                                            {{ $track->name }}
+                                        </a>
+
+                                    </div>
                                     <div class="text-muted">
                                         <a class="text-decoration-none text-white"
                                            href="{{ route('artists.show', ['artistId' => $track->album->artist->id ]) }}">
