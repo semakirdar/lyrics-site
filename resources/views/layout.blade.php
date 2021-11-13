@@ -10,39 +10,29 @@
 </head>
 <body>
 <header>
-    <nav>
-        <div class="nav-top d-flex justify-content-between">
-            <div class="container d-flex justify-content-between">
-                <ul class="nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Admin
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album Add</a></li>
-
-                            <li><a class="dropdown-item" href="{{ route('admin.artists.index') }}">Artist List</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.artists.create') }}">Artist Add</a></li>
-                           
-                            <li><a class="dropdown-item" href="#">Track List</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.tracks.create') }}">Track Add</a></li>
-                        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">MUSIC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link" href="#">Keşfet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kitaplık</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Arayın</a>
                     </li>
                 </ul>
-
-                <form class="d-flex justify-content-between">
-                    <input class="form-control" type="search" aria-label="Search">
-                    <button class="btn btn-primary text-white" type="submit">Search</button>
-                </form>
             </div>
-        </div>
-        <div class="nav-bottom">
-
         </div>
     </nav>
 </header>
@@ -50,21 +40,7 @@
     @yield('content')
 </div>
 <footer>
-    <nav>
-        <div class="nav-top">
-            <div class="container">
-                <div class="d-flex justify-content-center align-items-center">
-                    <p>Submit Lyrics</p>
-                    <p>Soundtracks</p>
-                    <p>Facebook</p>
-                    <p>Contact Us</p>
-                </div>
-            </div>
-        </div>
-        <div class="nav-bottom">
 
-        </div>
-    </nav>
 </footer>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>

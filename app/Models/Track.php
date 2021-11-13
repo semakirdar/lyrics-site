@@ -16,5 +16,17 @@ class Track extends Model
         'genre_id'
     ];
 
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+
+    }
+
 
 }

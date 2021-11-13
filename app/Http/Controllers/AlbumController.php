@@ -85,7 +85,8 @@ class AlbumController extends Controller
     {
         $album = Album::query()->with('tracks')->where('id', $albumId)->first();
         return view('album-show', [
-            'album' => $album
+            'album' => $album,
         ]);
     }
+
 }

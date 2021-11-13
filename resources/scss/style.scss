@@ -1,93 +1,124 @@
-nav {
-    .nav-top {
-        padding: 10px;
-        background-color: lighten($primary, 20%);
-
-        form {
-            input {
-                width: unset;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-
-            button {
-                border-top-left-radius: 0;
-                border-bottom-left-radius: 0;
-            }
-        }
-    }
-
-    .nav-bottom {
-        background-color: $primary;
-        height: 40px;
-    }
-}
-
-.hot-songs {
-    .hot-song-item {
-
-        padding: 8px;
-        background-color: #efeefe;
-        border: 1px solid #dee0df;
-        margin: 0;
-
-        &:hover {
-            background-color: lighten($primary, 20%);
-        }
-
-        a {
-            text-decoration: none;
-        }
-    }
-}
-
-
-.hot-albums {
-    .hot-albums-item {
-        .album-image {
-            transition: all .5s ease;
-
-            img {
-                object-fit: cover;
-                width: 100%;
-                height: 150px;
-            }
-
-            &:hover {
-                transform: translateY(-25px);
-            }
-        }
-
-        .album-text {
-            p {
-                margin: 0;
-            }
-
-            .artist-name {
-                font-size: 14px;
-            }
-        }
-    }
-
-    a {
-        text-decoration: none;
-
-    }
-}
-
-footer {
-    .nav-top {
-        p {
-            color: white;
-            padding-right: 25px;
-            margin: 0;
-        }
-    }
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 .new-create {
     input, textarea, select {
         background-color: white;
     }
-
 }
+
+.tracks {
+    .track-item {
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .track-info {
+            font-size: 13px;
+
+            .track {
+                font-size: 14px !important;
+            }
+        }
+    }
+}
+
+.albums {
+    display: flex;
+    align-items: center;
+
+    .album-item {
+        margin-right: 20px;
+
+        img {
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .album-info {
+            font-size: 13px;
+        }
+    }
+}
+
+.album-detail {
+    .album-detail-info {
+        font-size: 14px;
+    }
+
+    .tracks {
+        font-size: 14px;
+
+        .track-item {
+            display: flex;
+            border-bottom: 1px solid #1d1d1d;
+            padding: 15px 0;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+        }
+    }
+}
+
+nav {
+    position: relative;
+    z-index: 999;
+}
+
+.artist-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .artist-detail-image {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            object-position: center -100px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(8, 7, 7);
+            background: -moz-linear-gradient(0deg, rgba(8, 7, 7, 1) 0%, rgba(246, 242, 246, 0) 100%);
+            background: -webkit-linear-gradient(0deg, rgba(8, 7, 7, 1) 0%, rgba(246, 242, 246, 0) 100%);
+            background: linear-gradient(0deg, rgba(8, 7, 7, 1) 0%, rgba(246, 242, 246, 0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#080707", endColorstr="#f6f2f6", GradientType=1);
+        }
+    }
+
+    .tracks {
+        font-size: 14px;
+
+        .track-item {
+            display: flex;
+            border-bottom: 1px solid #1d1d1d;
+            padding: 15px 0;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+        }
+    }
+}
+
+
+
+

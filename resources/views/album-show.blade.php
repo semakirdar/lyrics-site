@@ -1,33 +1,39 @@
 @extends('layout')
 @section('content')
-
-
-    <div class="container">
-
-        <div class="album-tracks text-center py-4">
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="mb-3 ">
+    <div class="container py-5">
+        <div class="album-detail">
+            <div class="row align-items-center">
+                <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div class="album-detail-image">
                         <img class="img-fluid" src="{{ $album->getFirstMediaUrl() }}">
                     </div>
-                    <div class="mb-3">
-                        <h2>{{ $album->name }}</h2>
-                    </div>
-                    <div class="mb-3">
-                        <span>{{ $album->artist->name }}</span>
-                    </div>
-                    <div class="mb-5">
-                        <span>{{ $album->description }}</span>
-                    </div>
 
-                    @foreach($album->tracks as $track)
-                        <div class="album-song-item mb-3">
-                            <a href="#">{{ $track->name }}</a>
-                        </div>
-                    @endforeach
                 </div>
+                <div class="col-sm-12 col-md-12 col-lg-9">
+                    <h3>{{ $album->name }}</h3>
+                    <div class="album-detail-info text-muted mt-3">
+                        <div>
+                            <span>{{ $album->is_single == 0 ?'Album' : 'Single' }}</span> -
+                            <span>{{ $album->artist->name }}</span> -
+                            <span>{{ $album->release_year }}</span>
+                        </div>
+                        <div class="mb-3">
+                            {{ count($album->tracks) }} Şarkı
+                        </div>
+                        <div>
+                            {{ $album->description }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tracks mt-5">
+                @foreach($album->tracks as $track)
+                    <div class="track-item">
+                        <div class="text-muted me-5">{{  $loop->iteration }}</div>
+                        <div>{{ $track->name }}</div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-
 @endsection()

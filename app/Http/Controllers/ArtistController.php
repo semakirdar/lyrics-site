@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\Track;
 use Illuminate\Http\Request;
 
 class ArtistController extends Controller
@@ -59,5 +60,19 @@ class ArtistController extends Controller
         return redirect()->route('admin.artists.index');
     }
 
+    public function show($artistId)
+    {
+        $artist = Artist::query()->where('id', $artistId)->first();
+        $tracks = Track::query()
+            ->whereHas('album', function ($query) use ($artistId) {
+                $query->where('artist_id', $artistId);
+            })
+            ->limit(5)
+            ->get();
+        return view('artist-show', [
+            'artist' => $artist,
+            'tracks' => $tracks
+        ]);
+    }
 
 }

@@ -1,89 +1,64 @@
 @extends('layout')
 @section('content')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-12 col-lg-8">
-                <div class="home d-flex justify-content-center align-items-center pt-5">
-                    <div class="col-lg-4 text-center">
-                        <h1>WELCOME</h1>
-                        <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's
-                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                            scrambled</p>
-                    </div>
-                </div>
-                <div class="hot-songs text-center pt-5">
-                    <h2>HOT SONGS</h2>
-                    <div class="row justify-content-center pt-3">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                            <div class="hot-song-item">
-                                <a href="#">Adele - Easy On Me</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hot-albums text-center py-5">
-                    <h2>HOT ALBUMS</h2>
-                    <div class="row pt-3">
-                        @foreach($albums as $album)
-                            <div class="col-sm-12 col-md-12 col-lg-3">
-                                <div class="hot-albums-item mt-4">
-                                    <div class="album-image">
-                                        <a href="{{ route('admin.albums.show', ['albumId' => $album->id]) }}">
-                                            <img src="{{ $album->getFirstMediaUrl() }}">
-                                        </a>
-                                    </div>
-                                    <div class="album-text mt-3">
-                                        <a href="{{ route('admin.albums.show', ['albumId' => $album->id]) }}">
-                                            <p>{{ $album->name }}</p>
-                                        </a>
-                                        <a href="#">
-                                            <p class="artist-name">{{ $album->artist->name }}</p>
+    <div class="container py-5">
+        <div class="tracks mb-5">
+            <h4>LAST SONGS</h4>
+            <div class="row mt-4">
+                @foreach($tracks->chunk(4) as $chunk)
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        @foreach($chunk as $track)
+                            <div class="track-item mb-2">
+                                <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                <div class="track-info">
+                                    <div class="track">{{ $track->name }}</div>
+                                    <div class="text-muted">
+                                        <a class="text-decoration-none text-white"
+                                           href="{{ route('artists.show', ['artistId' => $track->album->artist->id ]) }}">
+                                        <span>
+                                            {{ $track->album->artist->name }}
+                                        </span>
+                                        </a> -
+                                        <a class="text-decoration-none text-muted"
+                                           href="{{route('albums.show', ['albumId' => $track->album->id])}}">
+                                            <span>{{ $track->album->name }}</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                </div>
+                @endforeach
+            </div>
+        </div>
+        <div>
+            <h4>LAST ALBUMS</h4>
+            <div class="albums mt-5">
+                @foreach($albums as $album)
+                    <div class="album-item">
+                        <a href="{{route('albums.show', ['albumId' => $album->id])}}">
+                            <img src="{{ $album->getFirstMediaUrl() }}">
+                        </a>
+                        <div class="album-info mt-3">
+                            <div>
+                                <a class="text-decoration-none text-white"
+                                   href="{{route('albums.show', ['albumId' => $album->id])}}">
+                                    {{$album->name}}
+                                </a>
+                            </div>
+                            <div class="text-muted">
+                                <span>{{ $album->is_single == 0 ?'Album' : 'Single' }}</span> -
+                                <span>
+                                    <a class="text-decoration-none text-white"
+                                       href="{{ route('artists.show', ['artistId' => $album->artist->id ]) }}">
+                                        {{ $album->artist->name }}
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-
 @endsection

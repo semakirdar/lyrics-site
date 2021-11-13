@@ -15,4 +15,9 @@ class Artist extends Model implements HasMedia
         'bio',
         'country'
     ];
+
+    public function tracks()
+    {
+        return $this->hasMany(Track::class);
+    }
 }
