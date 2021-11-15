@@ -31,6 +31,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Search</a>
                     </li>
+                    @auth()
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-user"></i>
+                                {{ auth()->user()->name }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </a>
+                        </li>
+                    @endauth()
+                    @guest()
+                        
+                    @endguest()
                 </ul>
             </div>
         </div>

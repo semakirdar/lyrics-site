@@ -3,7 +3,11 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TrackController;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//gEU%ckFZ$c7F
+
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/admin/albums/index', [AlbumController::class, 'index'])->name('admin.albums.index');
@@ -38,3 +46,10 @@ Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tr
 
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
 
+Route::get('/admin/login', [LoginController::class, 'login'])->name('login');
+Route::post('/admin/login/store', [LoginController::class, 'store'])->name('login.store');
+
+Route::get('/admin/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::get('admin/register', [RegisterController::class, 'register'])->name('register');
+Route::post('admin/register/store', [RegisterController::class, 'store'])->name('register.store');
