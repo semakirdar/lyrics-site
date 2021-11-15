@@ -30,7 +30,12 @@
                 @foreach($album->tracks as $track)
                     <div class="track-item">
                         <div class="text-muted me-5">{{  $loop->iteration }}</div>
-                        <div>{{ $track->name }}</div>
+                        <div>
+                            <a class="text-decoration-none text-muted"
+                               href="{{ route('tracks.show', ['trackId' => $track->id]) }}">
+                                {{ $track->name }}
+                            </a>
+                        </div>
                     </div>
                 @endforeach
             </div>
