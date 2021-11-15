@@ -44,18 +44,18 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login/store', [LoginController::class, 'store'])->name('login.store');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/login/store', [LoginController::class, 'store'])->name('login.store');
 
-Route::get('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
+    Route::get('/register', [RegisterController::class, 'register'])->name('register');
+    Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
 
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
 Route::get('/{albumId}/albums/show', [AlbumController::class, 'show'])->name('albums.show');
-
 
 Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tracks.show');
 

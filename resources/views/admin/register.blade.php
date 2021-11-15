@@ -6,7 +6,7 @@
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="card">
                     <div class="card-header">
-                        <h3><i class="fas fa-user"></i> Register</h3>
+                        <h3><i class="fas fa-user-plus"></i> Register</h3>
                     </div>
                     <div class="card-body">
                         <form method="post" action="{{ route('register.store') }}">
@@ -25,6 +25,10 @@
                             </div>
                             <button class="btn btn-success form-control">SAVE</button>
                         </form>
+                        <a class="nav-link text-center text-white text-decoration-underline mt-3"
+                           href="{{ route('login') }}">
+                            <small>Have you already account? You can click here to login.</small>
+                        </a>
                     </div>
                 </div>
             </div>

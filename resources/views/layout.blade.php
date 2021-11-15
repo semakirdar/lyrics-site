@@ -31,19 +31,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Search</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-info" data-bs-toggle="dropdown" href="#" role="button"
-                           aria-expanded="false">Admin</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album Create</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.artists.index') }}">Artist List</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.artists.create') }}">Artist Create</a>
-                            </li>
-                            <li><a class="dropdown-item" href="{{ route('admin.tracks.create') }}">Track Create</a></li>
-                        </ul>
-                    </li>
                     @auth()
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-info" data-bs-toggle="dropdown" href="#"
+                               role="button"
+                               aria-expanded="false">Admin</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album Create</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('admin.artists.index') }}">Artist List</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('admin.artists.create') }}">Artist
+                                        Create</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('admin.tracks.create') }}">Track Create</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <i class="fas fa-user"></i>
