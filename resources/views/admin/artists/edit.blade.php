@@ -22,7 +22,7 @@
                     <label>Image</label>
                     <input type="file" name="image" class="form-control">
                 </div>
-                <button class="btn btn-primary">EDIT</button>
+                <button class="btn btn-info">EDIT</button>
             </form>
         </div>
     </div>

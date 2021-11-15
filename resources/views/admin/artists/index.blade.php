@@ -18,7 +18,7 @@
                         <td>{{ $artist->bio }}</td>
                         <td>{{ $artist->country }}</td>
                         <td><a href="{{ route('admin.artists.edit', ['id' => $artist->id]) }}"
-                               class="btn btn-sm btn-dark">Edit</a></td>
+                               class="btn btn-sm btn-info">Edit</a></td>
                     </tr>
                 @endforeach
             </table>

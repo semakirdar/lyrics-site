@@ -24,13 +24,7 @@ use Illuminate\Support\Facades\Route;
 //gEU%ckFZ$c7F
 Route::middleware('auth')->group(function () {
 
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/login/store', [LoginController::class, 'store'])->name('login.store');
-
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
-
-    Route::get('/register', [RegisterController::class, 'register'])->name('register');
-    Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
 
     Route::middleware('admin')->group(function () {
         Route::get('/admin/albums/index', [AlbumController::class, 'index'])->name('admin.albums.index');
@@ -49,6 +43,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/tracks/store', [TrackController::class, 'store'])->name('admin.tracks.store');
     });
 });
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login/store', [LoginController::class, 'store'])->name('login.store');
+
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

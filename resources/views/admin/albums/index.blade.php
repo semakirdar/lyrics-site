@@ -20,7 +20,7 @@
                         <td>{{ $album->name }}</td>
                         <td>{{ $album->is_single }}</td>
                         <td><a href="{{ route('admin.albums.edit', ['id' => $album->id]) }}"
-                               class="btn btn-sm btn-dark">Edit</a></td>
+                               class="btn btn-sm btn-info">Edit</a></td>
                     </tr>
                 @endforeach
             </table>

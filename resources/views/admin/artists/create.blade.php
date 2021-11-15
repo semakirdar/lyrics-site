@@ -21,7 +21,7 @@
                     <label>Image</label>
                     <input type="file" name="image" class="form-control">
                 </div>
-                <button class="btn btn-primary">CREATE</button>
+                <button class="btn btn-info">CREATE</button>
             </form>
         </div>
     </div>

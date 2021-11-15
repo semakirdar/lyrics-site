@@ -29,7 +29,7 @@
                     <textarea class="form-control" name="lyric"></textarea>
                 </div>
 
-                <button class="btn btn-primary">CREATE</button>
+                <button class="btn btn-info">CREATE</button>
             </form>
         </div>
     </div>
