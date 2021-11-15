@@ -22,34 +22,43 @@ use Illuminate\Support\Facades\Route;
 */
 
 //gEU%ckFZ$c7F
+Route::middleware('auth')->group(function () {
+
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/login/store', [LoginController::class, 'store'])->name('login.store');
+
+    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+    Route::get('/register', [RegisterController::class, 'register'])->name('register');
+    Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
+
+    Route::middleware('admin')->group(function () {
+        Route::get('/admin/albums/index', [AlbumController::class, 'index'])->name('admin.albums.index');
+        Route::get('/admin/albums/create', [AlbumController::class, 'create'])->name('admin.albums.create');
+        Route::post('/admin/albums/store', [AlbumController::class, 'store'])->name('admin.albums.store');
+        Route::get('/admin/albums/{id}/edit', [AlbumController::class, 'edit'])->name('admin.albums.edit');
+        Route::post('/admin/albums/{id}/update', [AlbumController::class, 'update'])->name('admin.albums.update');
+
+        Route::get('/admin/artists/index', [ArtistController::class, 'index'])->name('admin.artists.index');
+        Route::get('/admin/artists/create', [ArtistController::class, 'create'])->name('admin.artists.create');
+        Route::post('/admin/artists/store', [ArtistController::class, 'store'])->name('admin.artists.store');
+        Route::get('/admin/artists/{id}/edit', [ArtistController::class, 'edit'])->name('admin.artists.edit');
+        Route::post('/admin/artists/{id}/update', [ArtistController::class, 'update'])->name('admin.artists.update');
+
+        Route::get('/admin/tracks/create', [TrackController::class, 'create'])->name('admin.tracks.create');
+        Route::post('/admin/tracks/store', [TrackController::class, 'store'])->name('admin.tracks.store');
+    });
+});
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/admin/albums/index', [AlbumController::class, 'index'])->name('admin.albums.index');
-Route::get('/admin/albums/create', [AlbumController::class, 'create'])->name('admin.albums.create');
-Route::post('/admin/albums/store', [AlbumController::class, 'store'])->name('admin.albums.store');
-Route::get('/admin/albums/{id}/edit', [AlbumController::class, 'edit'])->name('admin.albums.edit');
-Route::post('/admin/albums/{id}/update', [AlbumController::class, 'update'])->name('admin.albums.update');
 
 Route::get('/{albumId}/albums/show', [AlbumController::class, 'show'])->name('albums.show');
 
-Route::get('/admin/artists/index', [ArtistController::class, 'index'])->name('admin.artists.index');
-Route::get('/admin/artists/create', [ArtistController::class, 'create'])->name('admin.artists.create');
-Route::post('/admin/artists/store', [ArtistController::class, 'store'])->name('admin.artists.store');
-Route::get('/admin/artists/{id}/edit', [ArtistController::class, 'edit'])->name('admin.artists.edit');
-Route::post('/admin/artists/{id}/update', [ArtistController::class, 'update'])->name('admin.artists.update');
 
-Route::get('/admin/tracks/create', [TrackController::class, 'create'])->name('admin.tracks.create');
-Route::post('/admin/tracks/store', [TrackController::class, 'store'])->name('admin.tracks.store');
 Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tracks.show');
 
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
 
-Route::get('/admin/login', [LoginController::class, 'login'])->name('login');
-Route::post('/admin/login/store', [LoginController::class, 'store'])->name('login.store');
 
-Route::get('/admin/logout', [LogoutController::class, 'logout'])->name('logout');
-
-Route::get('admin/register', [RegisterController::class, 'register'])->name('register');
-Route::post('admin/register/store', [RegisterController::class, 'store'])->name('register.store');
