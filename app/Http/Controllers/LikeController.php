@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Like;
+use App\Models\Track;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
@@ -20,8 +21,15 @@ class LikeController extends Controller
                 'track_id' => $trackId
             ]);
         }
-
         return redirect()->back();
+    }
 
+    public function likedSongs()
+    {
+        $likes = Like::query()->with('track')->where('user_id', auth()->user()->id)->get();
+
+        return view('liked-songs', [
+            'likes' => $likes
+        ]);
     }
 }

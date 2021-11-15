@@ -17418,6 +17418,8 @@ body {
 .tracks .track-item {
   display: flex;
   align-items: center;
+}
+.tracks .track-item.album-track-item {
   justify-content: space-between;
 }
 .tracks .track-item img {

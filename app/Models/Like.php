@@ -13,4 +13,9 @@ class Like extends Model
         'user_id',
         'track_id'
     ];
+
+    public function track()
+    {
+        return $this->belongsTo(Track::class);
+    }
 }

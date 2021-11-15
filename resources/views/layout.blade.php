@@ -23,13 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Discover</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Library</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Search</a>
+                        <a class="nav-link" href="{{ route('liked.songs') }}">Liked Songs</a>
                     </li>
                     @auth()
                         <li class="nav-item dropdown">

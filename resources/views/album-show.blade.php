@@ -28,7 +28,7 @@
             </div>
             <div class="tracks mt-5">
                 @foreach($album->tracks as $track)
-                    <div class="track-item {{ $track->is_liked == true ? 'is_liked' : ' ' }}">
+                    <div class="track-item album-track-item {{ $track->is_liked == true ? 'is_liked' : ' ' }}">
                         <div class="d-flex justify-content-center">
                             <div class="text-muted me-5">{{  $loop->iteration }}</div>
                             <a class="text-decoration-none text-muted"

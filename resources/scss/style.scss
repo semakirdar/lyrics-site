@@ -12,7 +12,10 @@ body {
     .track-item {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+
+        &.album-track-item{
+            justify-content: space-between;
+        }
 
         img {
             height: 50px;
@@ -36,6 +39,7 @@ body {
             }
 
         }
+
 
         &:hover {
             .like-button {

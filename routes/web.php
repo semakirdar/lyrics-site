@@ -63,3 +63,4 @@ Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tr
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
 
 Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tracks.like');
+Route::get('/liked/songs', [LikeController::class, 'likedSongs'])->name('liked.songs');
