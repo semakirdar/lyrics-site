@@ -17439,6 +17439,9 @@ body {
 .tracks .track-item:hover .like-button {
   display: block;
 }
+.tracks .track-item.is_liked .like-button {
+  display: block;
+}
 
 .albums .album-item {
   margin-right: 20px;

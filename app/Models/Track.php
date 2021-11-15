@@ -16,6 +16,10 @@ class Track extends Model
         'genre_id'
     ];
 
+    protected $appends = [
+        'is_liked'
+    ];
+
     public function album()
     {
         return $this->belongsTo(Album::class);
@@ -26,6 +30,16 @@ class Track extends Model
     {
         return $this->belongsTo(Genre::class);
 
+    }
+
+    public function getIsLikedAttribute()
+    {
+        $like = Like::query()
+            ->where('user_id', auth()->user()->id)
+            ->where('track_id', $this->id)
+            ->first();
+
+        return $like ? true : false;
     }
 
 
