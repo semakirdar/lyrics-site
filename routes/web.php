@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -61,4 +62,4 @@ Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tr
 
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
 
-
+Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tracks.like');

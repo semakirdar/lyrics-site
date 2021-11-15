@@ -17418,6 +17418,7 @@ body {
 .tracks .track-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .tracks .track-item img {
   height: 50px;
@@ -17428,6 +17429,15 @@ body {
 }
 .tracks .track-item .track-info .track {
   font-size: 14px !important;
+}
+.tracks .track-item .like-button {
+  display: none;
+}
+.tracks .track-item .like-button i {
+  font-size: 17px;
+}
+.tracks .track-item:hover .like-button {
+  display: block;
 }
 
 .albums .album-item {

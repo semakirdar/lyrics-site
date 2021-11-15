@@ -12,6 +12,7 @@ body {
     .track-item {
         display: flex;
         align-items: center;
+        justify-content: space-between;
 
         img {
             height: 50px;
@@ -24,6 +25,24 @@ body {
             .track {
                 font-size: 14px !important;
             }
+        }
+
+        .like-button {
+            display: none;
+
+            i {
+                font-size: 17px;
+
+            }
+
+
+        }
+
+        &:hover {
+            .like-button {
+                display: block;
+            }
+
         }
     }
 }

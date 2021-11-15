@@ -10,6 +10,7 @@
                         <p>{{ $track->album->artist->name }}</p>
                         <img class="img-fluid" src="{{ $track->album->getFirstMediaUrl() }}">
                     </div>
+
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <h3>SONG LYRICS</h3>
