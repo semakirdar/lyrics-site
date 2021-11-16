@@ -67,3 +67,4 @@ Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tra
 Route::get('/liked/songs', [LikeController::class, 'likedSongs'])->name('liked.songs');
 
 Route::get('/playlist/create', [Playlist::class, 'create'])->name('playlist.create');
+Route::post('/playlist/store', [Playlist::class, 'store'])->name('playlist.store');
