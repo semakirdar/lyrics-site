@@ -36,12 +36,21 @@
                                 {{ $track->name }}
                             </a>
                         </div>
-                        <div class="like-button">
-                            <a class="text-white"
-                               href="{{ route('tracks.like', ['trackId' => $track->id]) }}">
-                                <i class="far fa-thumbs-up"></i>
-                            </a>
+
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="like-button me-3">
+                                <a class="text-white"
+                                   href="{{ route('tracks.like', ['trackId' => $track->id]) }}">
+                                    <i class="far fa-thumbs-up"></i>
+                                </a>
+                            </div>
+                            <div class="play-list-button">
+                                <a class="text-white" href="#">
+                                    <i class="far fa-plus-square"></i>
+                                </a>
+                            </div>
                         </div>
+
                     </div>
                 @endforeach
             </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TrackController;
+use App\Models\Playlist;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
@@ -64,3 +65,5 @@ Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name(
 
 Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tracks.like');
 Route::get('/liked/songs', [LikeController::class, 'likedSongs'])->name('liked.songs');
+
+Route::get('/playlist/create', [Playlist::class, 'create'])->name('playlist.create');

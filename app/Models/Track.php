@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Track extends Model
 {
@@ -34,12 +35,17 @@ class Track extends Model
 
     public function getIsLikedAttribute()
     {
-        $like = Like::query()
-            ->where('user_id', auth()->user()->id)
-            ->where('track_id', $this->id)
-            ->first();
+        if (Auth::check()) {
+            $like = Like::query()
+                ->where('user_id', auth()->user()->id)
+                ->where('track_id', $this->id)
+                ->first();
 
-        return $like ? true : false;
+            return $like ? true : false;
+        } else {
+            return false;
+        }
+
     }
 
 
