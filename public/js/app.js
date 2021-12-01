@@ -5213,6 +5213,24 @@ __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/ind
 
 __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 
+var addPlaylist = document.querySelectorAll('.add-play-list-button');
+var playlistModal = document.querySelector('.playlist-modal');
+var playListName = document.querySelectorAll('.play-list-name');
+addPlaylist.forEach(function (item, i) {
+  item.addEventListener('click', function () {
+    playlistModal.style.display = 'block';
+    var id = item.dataset.id;
+    document.getElementById('trackId').value = id;
+  });
+});
+playListName.forEach(function (item, i) {
+  item.addEventListener('click', function () {
+    var id = item.dataset.id;
+    document.getElementById('playlistId').value = id;
+    document.getElementById('playlistForm').submit();
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

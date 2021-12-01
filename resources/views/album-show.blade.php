@@ -44,8 +44,8 @@
                                     <i class="far fa-thumbs-up"></i>
                                 </a>
                             </div>
-                            <div class="play-list-button">
-                                <a class="text-white" href="#">
+                            <div class="add-play-list-button" data-id="{{$track->id}}">
+                                <a class="text-white" href="javascript:;">
                                     <i class="far fa-plus-square"></i>
                                 </a>
                             </div>

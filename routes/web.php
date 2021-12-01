@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\playlistController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TrackController;
 use App\Models\Playlist;
@@ -25,11 +26,16 @@ use Illuminate\Support\Facades\Route;
 
 //gEU%ckFZ$c7F
 Route::middleware('auth')->group(function () {
-
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
     Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tracks.like');
     Route::get('/liked/songs', [LikeController::class, 'likedSongs'])->name('liked.songs');
+
+    Route::get('/playlist/create', [PlaylistController::class, 'create'])->name('playlist.create');
+    Route::post('/playlist/store', [PlaylistController::class, 'store'])->name('playlist.store');
+
+    Route::post('/playlist/track/add', [PlaylistController::class, 'trackAdd'])->name('playlist.track.add');
+
 
     Route::middleware('admin')->group(function () {
         Route::get('/admin/albums/index', [AlbumController::class, 'index'])->name('admin.albums.index');
@@ -46,6 +52,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/admin/tracks/create', [TrackController::class, 'create'])->name('admin.tracks.create');
         Route::post('/admin/tracks/store', [TrackController::class, 'store'])->name('admin.tracks.store');
+
     });
 });
 
@@ -59,16 +66,9 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::get('/{albumId}/albums/show', [AlbumController::class, 'show'])->name('albums.show');
-
 Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tracks.show');
-
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
-
-
-Route::get('/playlist/create', [Playlist::class, 'create'])->name('playlist.create');
-Route::post('/playlist/store', [Playlist::class, 'store'])->name('playlist.store');
 
 
 Route::get('/api', [HomeController::class, 'api'])->name('api');

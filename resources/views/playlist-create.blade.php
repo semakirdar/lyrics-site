@@ -3,8 +3,8 @@
 
     <div class="container">
         <div class="new-create">
-            <form method="post" action="">
-                @csrf¬
+            <form method="post" action="{{route('playlist.store')}}">
+                @csrf
                 <div class="mb-3">
                     <label>Name</label>
                     <input class="form-control" name="name">

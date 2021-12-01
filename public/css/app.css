@@ -4509,7 +4509,7 @@ textarea.form-control-lg {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #030303;
+  background-color: white;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -4583,6 +4583,10 @@ textarea.form-control-lg {
   margin-bottom: -0.5rem;
   margin-left: -0.5rem;
   border-bottom: 0;
+}
+.card-header-tabs .nav-link.active {
+  background-color: white;
+  border-bottom-color: white;
 }
 
 .card-header-pills {
@@ -17432,13 +17436,13 @@ body {
 .tracks .track-item .track-info .track {
   font-size: 14px !important;
 }
-.tracks .track-item .like-button, .tracks .track-item .play-list-button {
+.tracks .track-item .like-button, .tracks .track-item .add-play-list-button {
   display: none;
 }
-.tracks .track-item .like-button i, .tracks .track-item .play-list-button i {
+.tracks .track-item .like-button i, .tracks .track-item .add-play-list-button i {
   font-size: 17px;
 }
-.tracks .track-item:hover .like-button, .tracks .track-item:hover .play-list-button {
+.tracks .track-item:hover .like-button, .tracks .track-item:hover .add-play-list-button {
   display: block;
 }
 .tracks .track-item.is_liked .like-button {
@@ -17548,4 +17552,27 @@ a:hover {
 .login .card {
   padding: 60px;
   border: 1px solid #4e4d4d;
+}
+
+.playlist-modal {
+  display: none;
+  float: right;
+}
+.playlist-modal .card {
+  background-color: #424040;
+  width: 400px;
+  height: 400px;
+}
+.playlist-modal .card .card-header {
+  border-bottom: none;
+}
+.playlist-modal .card .card-footer {
+  border-top: none;
+}
+.playlist-modal .card .card-footer a {
+  text-decoration: none;
+  color: white;
+}
+.playlist-modal .card .card-footer a i {
+  float: right;
 }

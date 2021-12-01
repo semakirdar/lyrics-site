@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Playlist;
+use App\Models\Track;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $playlists = Playlist::query()->get();
+
+        View::share([
+            'playlists' => $playlists
+        ]);
     }
 }

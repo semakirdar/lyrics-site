@@ -23,6 +23,10 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('playlist.create') }}">Playlist
+                            Create</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('liked.songs') }}">Liked Songs</a>
                     </li>
                     @auth()
@@ -77,8 +81,38 @@
     @yield('content')
 </div>
 <footer>
-
 </footer>
+
+<div class="container">
+    <div class="playlist-modal py-5">
+        <div class="card">
+            <div class="card-header">
+                <h6>Playlist</h6>
+            </div>
+            <div class="card-body">
+                <div>
+                    @foreach($playlists as $playlist)
+                        <a class="play-list-name" data-id="{{$playlist->id}}" href="javascript:;">
+                            {{ $playlist->name }}
+                        </a>
+                    @endforeach
+                    <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
+                        @csrf
+                        <input id="playlistId" name="playlist_id" type="hidden">
+                        <input id="trackId" name="track_id" type="hidden">
+                    </form>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="#">
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -30,19 +30,17 @@ body {
             }
         }
 
-        .like-button, .play-list-button {
+        .like-button, .add-play-list-button {
             display: none;
 
             i {
                 font-size: 17px;
-
             }
-
         }
 
 
         &:hover {
-            .like-button, .play-list-button {
+            .like-button, .add-play-list-button {
                 display: block;
             }
 
@@ -186,7 +184,32 @@ a {
     }
 }
 
+.playlist-modal {
+    display: none;
+    float: right;
 
+    .card {
+        background-color: #424040;
+        width: 400px;
+        height: 400px;
 
+        .card-header {
+            border-bottom: none;
+        }
+
+        .card-footer {
+            border-top: none;
+
+            a {
+                text-decoration: none;
+                color: white;
+
+                i {
+                    float: right;
+                }
+            }
+        }
+    }
+}
 
 
