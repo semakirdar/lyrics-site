@@ -185,8 +185,10 @@ a {
 }
 
 .playlist-modal {
-    display: none;
-    float: right;
+    position: fixed;
+    bottom: 0;
+    right: 200px;
+    
 
     .card {
         background-color: #424040;

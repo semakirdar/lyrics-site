@@ -26,7 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $playlists = Playlist::query()->get();
+        $playlists = Playlist::query()
+            ->with('tracks')
+            ->get();
+   
 
         View::share([
             'playlists' => $playlists

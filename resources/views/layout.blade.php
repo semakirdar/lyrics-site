@@ -92,6 +92,11 @@
             <div class="card-body">
                 <div>
                     @foreach($playlists as $playlist)
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="">
+                            </div>
+                        </div>
                         <a class="play-list-name" data-id="{{$playlist->id}}" href="javascript:;">
                             {{ $playlist->name }}
                         </a>

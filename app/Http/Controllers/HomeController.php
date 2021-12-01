@@ -24,6 +24,8 @@ class HomeController extends Controller
 
     public function api()
     {
+        return false;
+
         $baseUrl = 'http://ws.audioscrobbler.com/2.0/';
         $apiKey = '32fc165a39ae9fe72a226f3430553c73';
 
