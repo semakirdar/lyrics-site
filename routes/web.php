@@ -28,6 +28,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+    Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tracks.like');
+    Route::get('/liked/songs', [LikeController::class, 'likedSongs'])->name('liked.songs');
+
     Route::middleware('admin')->group(function () {
         Route::get('/admin/albums/index', [AlbumController::class, 'index'])->name('admin.albums.index');
         Route::get('/admin/albums/create', [AlbumController::class, 'create'])->name('admin.albums.create');
@@ -63,8 +66,12 @@ Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tr
 
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
 
-Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tracks.like');
-Route::get('/liked/songs', [LikeController::class, 'likedSongs'])->name('liked.songs');
 
 Route::get('/playlist/create', [Playlist::class, 'create'])->name('playlist.create');
 Route::post('/playlist/store', [Playlist::class, 'store'])->name('playlist.store');
+
+
+Route::get('/api', [HomeController::class, 'api'])->name('api');
+
+
+
