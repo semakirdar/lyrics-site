@@ -21,7 +21,7 @@ class PlaylistController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('playlist.lists');
     }
 
     public function trackAdd(Request $request)
@@ -47,7 +47,7 @@ class PlaylistController extends Controller
 
     public function show($playlistId)
     {
-        $playlist = Playlist::query()->where('id', $playlistId)->with('tracks')->first();
+        $playlist = Playlist::query()->where('id', $playlistId)->with(['tracks', 'user'])->first();
         return view('playlists.show', [
             'playlist' => $playlist
         ]);
@@ -62,10 +62,17 @@ class PlaylistController extends Controller
 
     public function index()
     {
-        $myPlaylists = Playlist::query()->with('tracks')->get();
+        $myPlaylists = Playlist::query()->where('user_id', auth()->user()->id)->with(['tracks', 'user'])->get();
         return view('playlists.index', [
             'myPlaylists' => $myPlaylists
         ]);
+    }
+
+    public function playlistDelete($id)
+    {
+        $playlist = Playlist::query()->where('id', $id)->first();
+        $playlist->delete();
+        return redirect()->route('playlist.lists');
     }
 
 }

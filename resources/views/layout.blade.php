@@ -85,6 +85,7 @@
 <footer>
 </footer>
 
+@auth
 <div class="container">
     <div class="playlist-modal py-5">
         <div id="playlist-list">
@@ -94,26 +95,28 @@
                 </div>
                 <div class="card-body">
 
-                    @foreach($playlists as $playlist)
-                        <div class="playlist-item mb-4">
-                            <div class="album-cover">
-                                @foreach($playlist->tracks->take(4) as $track)
-                                    <div class="album-image">
-                                        <a href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
-                                            <img src="{{ $track->album->getFirstMediaUrl() }}">
-                                        </a>
-                                    </div>
-                                @endforeach
+                    @if(isset($playlists))
+                        @foreach($playlists as $playlist)
+                            <div class="playlist-item mb-4">
+                                <div class="album-cover">
+                                    @foreach($playlist->tracks->take(4) as $track)
+                                        <div class="album-image">
+                                            <a href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
+                                                <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="album-info">
+                                    <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
+                                       href="javascript:;">
+                                        {{ $playlist->name }}
+                                    </a>
+                                    <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
+                                </div>
                             </div>
-                            <div class="album-info">
-                                <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
-                                   href="javascript:;">
-                                    {{ $playlist->name }}
-                                </a>
-                                <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
-                            </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
 
                     <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
                         @csrf
@@ -150,6 +153,7 @@
         </div>
     </div>
 </div>
+@endauth
 
 <script src="{{ asset('js/app.js') }}"></script>
 

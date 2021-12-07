@@ -9,7 +9,11 @@
                     <div class="col-sm-12 col-md-12 col-lg-4">
                         @foreach($chunk as $track)
                             <div class="track-item mb-2">
-                                <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                @if( !empty( $track->album->getFirstMediaUrl() ))
+                                    <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                @else
+                                    <img src="{{ asset('images/default-cover.jpeg')}}">
+                                @endif
                                 <div class="track-info">
                                     <div class="track">
                                         <a class="text-decoration-none text-white"

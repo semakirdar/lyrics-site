@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container py-5">
-        <a class="nav-link active mb-3 btn btn-info text-white d-inline-block" aria-current="page"
+        <a class="nav-link active mb-5 btn btn-info text-white d-inline-block" aria-current="page"
            href="{{ route('playlist.create') }}">Playlist
             Create</a>
 
@@ -23,6 +23,7 @@
                                 {{ $myPlaylist->name }}
                             </a>
                             <div class="track-count">{{ count($myPlaylist->tracks)}} Tracks</div>
+                            <div class="text-muted">{{ $myPlaylist->user->name }}</div>
                         </div>
                     </div>
                 </div>

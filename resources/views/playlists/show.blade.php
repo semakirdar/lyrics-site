@@ -1,30 +1,33 @@
 @extends('layout')
 @section('content')
     <div class="container my-5">
-        <div class="playlist-item mb-5">
-            <div class="album-cover">
-                @foreach($playlist->tracks->take(4) as $track)
-                    <div class="album-image">
-                        <img src="{{ $track->album->getFirstMediaUrl() }}">
-                    </div>
-                @endforeach
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="playlist-item mb-5">
+                <div class="album-cover">
+                    @foreach($playlist->tracks->take(4) as $track)
+                        <div class="album-image">
+                            <img src="{{ $track->album->getFirstMediaUrl() }}">
+                        </div>
+                    @endforeach
+                </div>
+                <div class="album-info">
+                    <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
+                       href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
+                        {{ $playlist->name }}
+                    </a>
+                    <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
+                    <div class="text-muted">{{ $playlist->user->name }}</div>
+                </div>
             </div>
-            <div class="album-info">
-                <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
-                   href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
-                    {{ $playlist->name }}
-                </a>
-                <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
+            <div>
+                <form method="post" action="{{route('playlist.lists.delete', ['id' => $playlist->id])}}">
+                    @csrf
+                    <button class="btn btn-info text-white">Playlist Delete</button>
+                </form>
             </div>
         </div>
 
-        <div class="tracks">
-            <div class="row mt-4">
-                @foreach($playlist->tracks as $track)
 
-                @endforeach
-            </div>
-        </div>
         <div class="album-detail">
             <div class="tracks mt-5">
                 @foreach($playlist->tracks as $track)

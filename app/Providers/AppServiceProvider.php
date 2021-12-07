@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Playlist;
 use App\Models\Track;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,14 +26,17 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Guard $auth)
     {
-        $playlists = Playlist::query()
-            ->with('tracks')
-            ->get();
+        view()->composer('*', function($view) use ($auth) {
+            if($auth->check()){
+                $playlists = Playlist::query()
+                    ->where('user_id', $auth->user()->id)
+                    ->with('tracks')
+                    ->get();
 
-        View::share([
-            'playlists' => $playlists
-        ]);
+                $view->with('playlists', $playlists);
+            }
+        });
     }
 }
