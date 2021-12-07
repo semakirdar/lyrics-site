@@ -70,6 +70,9 @@ Route::get('/{albumId}/albums/show', [AlbumController::class, 'show'])->name('al
 Route::get('/{trackId}/tracks/show', [TrackController::class, 'show'])->name('tracks.show');
 Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name('artists.show');
 
+Route::get('/playlist/{playlistId}/show', [PlaylistController::class, 'show'])->name('playlist.show');
+Route::post('/playlist/{trackId}/delete', [PlaylistController::class, 'trackDelete'])->name('playlist.track.delete');
+Route::get('/playlist/list', [PlaylistController::class, 'index'])->name('playlist.lists');
 
 Route::get('/api', [HomeController::class, 'api'])->name('api');
 

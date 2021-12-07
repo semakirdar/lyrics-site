@@ -29,7 +29,6 @@ class AppServiceProvider extends ServiceProvider
         $playlists = Playlist::query()
             ->with('tracks')
             ->get();
-   
 
         View::share([
             'playlists' => $playlists

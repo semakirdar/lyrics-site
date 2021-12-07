@@ -23,6 +23,11 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('playlist.lists') }}">My
+                            Playlists
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('playlist.create') }}">Playlist
                             Create</a>
                     </li>
@@ -90,23 +95,32 @@
                 <h6>Playlist</h6>
             </div>
             <div class="card-body">
-                <div>
+                <div class="playlist-item">
                     @foreach($playlists as $playlist)
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <img src="">
-                            </div>
+                        <div class="album-cover">
+                            @foreach($playlist->tracks->take(4) as $track)
+                                <div class="album-image">
+                                    <a href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
+                                        <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
-                        <a class="play-list-name" data-id="{{$playlist->id}}" href="javascript:;">
-                            {{ $playlist->name }}
-                        </a>
+                        <div class="album-info">
+                            <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
+                               href="javascript:;">
+                                {{ $playlist->name }}
+                            </a>
+                            <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
+                        </div>
                     @endforeach
-                    <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
-                        @csrf
-                        <input id="playlistId" name="playlist_id" type="hidden">
-                        <input id="trackId" name="track_id" type="hidden">
-                    </form>
                 </div>
+                <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
+                    @csrf
+                    <input id="playlistId" name="playlist_id" type="hidden">
+                    <input id="trackId" name="track_id" type="hidden">
+                </form>
+
             </div>
             <div class="card-footer">
                 <a href="#">
@@ -117,7 +131,15 @@
     </div>
 </div>
 
-
 <script src="{{ asset('js/app.js') }}"></script>
+
+
+@if ($errors->any())
+    <script>toastr.error('{{ implode(",", $errors->all()) }}')</script>
+@else
+    @if (session('success'))
+        <script>toastr.success('{{ session('success') }}')</script>
+    @endif
+@endif
 </body>
 </html>

@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Playlist;
 use App\Models\PlaylistTrack;
 use Illuminate\Http\Request;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class PlaylistController extends Controller
 {
     public function create()
     {
-        return view('playlist-create');
+        return view('playlists.create');
     }
 
     public function store(Request $request)
@@ -25,14 +26,46 @@ class PlaylistController extends Controller
 
     public function trackAdd(Request $request)
     {
-        $playlistTrack = PlaylistTrack::query()->create([
-            'track_id' => $request->track_id,
-            'playlist_id' => $request->playlist_id,
-            'sort_order' => 0
+        $exists = PlaylistTrack::query()
+            ->where('track_id', $request->track_id)
+            ->where('playlist_id', $request->playlist_id)
+            ->exists();
+        if (!$exists) {
+            PlaylistTrack::query()->create([
+                'track_id' => $request->track_id,
+                'playlist_id' => $request->playlist_id,
+                'sort_order' => 0
+            ]);
+        } else {
+            return redirect()->back()->withErrors('this track already exists in your play list');
+        }
+
+        return redirect()->back()->with('success', 'this track successfully added to playlist');
+
+
+    }
+
+    public function show($playlistId)
+    {
+        $playlist = Playlist::query()->where('id', $playlistId)->with('tracks')->first();
+        return view('playlists.show', [
+            'playlist' => $playlist
         ]);
+    }
 
-        return redirect()->back();
+    public function trackDelete($trackId)
+    {
+        $playlist = PlaylistTrack::query()->where('track_id', $trackId)->first();
+        $playlist->delete();
+        return redirect()->back()->with('success', 'track removed successfully form playlist');
+    }
 
+    public function index()
+    {
+        $myPlaylists = Playlist::query()->with('tracks')->get();
+        return view('playlists.index', [
+            'myPlaylists' => $myPlaylists
+        ]);
     }
 
 }

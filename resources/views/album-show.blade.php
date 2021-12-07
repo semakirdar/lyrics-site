@@ -7,7 +7,6 @@
                     <div class="album-detail-image">
                         <img class="img-fluid" src="{{ $album->getFirstMediaUrl() }}">
                     </div>
-
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-9">
                     <h3>{{ $album->name }}</h3>
@@ -44,6 +43,7 @@
                                     <i class="far fa-thumbs-up"></i>
                                 </a>
                             </div>
+
                             <div class="add-play-list-button" data-id="{{$track->id}}">
                                 <a class="text-white" href="javascript:;">
                                     <i class="far fa-plus-square"></i>
