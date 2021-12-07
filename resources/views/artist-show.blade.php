@@ -3,7 +3,11 @@
 
     <div class="artist-detail">
         <div class="artist-detail-image">
-            <img src="{{ $artist->getFirstMediaUrl() }}">
+            @if(!empty($artist->getFirstMediaUrl() ))
+                <img src="{{ $artist->getFirstMediaUrl() }}">
+            @else
+                <img src="{{ asset('images/album-kapak.jpeg') }}">
+            @endif
         </div>
         <div class="container">
             <h3>{{ $artist->name }}</h3>
@@ -25,9 +29,14 @@
                     <div class="row">
                         @foreach($albums as $album)
                             <div class="col-sm-12 col-md-12 col-lg-3">
-                                <div class="album-item">
+                                <div class="album-item mb-4">
+
                                     <a href="{{route('albums.show', ['albumId' => $album->id])}}">
-                                        <img src="{{ $album->getFirstMediaUrl() }}">
+                                        @if(!empty($album->getFirstMediaUrl()))
+                                            <img src="{{ $album->getFirstMediaUrl() }}">
+                                        @else
+                                            <img src="{{ asset('images/default-cover.jpeg') }}">
+                                        @endif
                                     </a>
                                     <div class="album-info mt-3">
                                         <div>

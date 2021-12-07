@@ -27,10 +27,7 @@
                             Playlists
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('playlist.create') }}">Playlist
-                            Create</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('liked.songs') }}">Liked Songs</a>
                     </li>
@@ -90,7 +87,8 @@
 
 <div class="container">
     <div class="playlist-modal py-5">
-        <div id="playlist-list"><div class="card">
+        <div id="playlist-list">
+            <div class="card">
                 <div class="card-header">
                     <h6>Playlist</h6>
                 </div>
@@ -129,7 +127,8 @@
                         <i class="fas fa-plus-circle"></i>
                     </a>
                 </div>
-            </div></div>
+            </div>
+        </div>
         <div id="playlist-create">
             <div class="container">
                 <div class="new-create">

@@ -17871,3 +17871,7 @@ a:hover {
 #playlist-create {
   display: none;
 }
+
+.new-create {
+  background-color: #424040;
+}

@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         $tracks = Track::query()->with('album')->inRandomOrder()->limit(12)->get();
-        $albums = Album::query()->with(['artist', 'tracks'])->orderBy('id', 'DESC')->limit(4)->get();
+        $albums = Album::query()->with(['artist', 'tracks'])->inRandomOrder()->limit(4)->get();
         return view('home', [
             'tracks' => $tracks,
             'albums' => $albums
@@ -30,11 +30,7 @@ class HomeController extends Controller
         $apiKey = '32fc165a39ae9fe72a226f3430553c73';
 
         $artists = [
-            'Adamlar',
-            'Yüzyüzeyken Konuşuruz',
-            'Son Feci Bisiklet',
-            'Yaşlı Amca',
-            'Dolu Kadehi Ters Tut',
+            'Gripin'
         ];
 
         foreach ($artists as $artist) {

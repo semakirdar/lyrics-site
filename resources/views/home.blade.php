@@ -45,7 +45,11 @@
                         <div class="col-sm-12 col-md-12 col-lg-3">
                             <div class="album-item">
                                 <a href="{{route('albums.show', ['albumId' => $album->id])}}">
-                                    <img src="{{ $album->getFirstMediaUrl() }}">
+                                    @if(!empty($album->getFirstMediaUrl()))
+                                        <img src="{{ $album->getFirstMediaUrl() }}">
+                                    @else
+                                        <img src="{{ asset('images/default-cover.jpeg') }}">
+                                    @endif
                                 </a>
                                 <div class="album-info mt-3">
                                     <div>

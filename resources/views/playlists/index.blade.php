@@ -2,6 +2,10 @@
 @section('content')
 
     <div class="container py-5">
+        <a class="nav-link active mb-3 btn btn-info text-white d-inline-block" aria-current="page"
+           href="{{ route('playlist.create') }}">Playlist
+            Create</a>
+
         <div class="row">
             @foreach($myPlaylists as $myPlaylist)
                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -24,6 +28,7 @@
                 </div>
             @endforeach
         </div>
+
     </div>
 
 @endsection()
