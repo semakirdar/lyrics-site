@@ -17867,3 +17867,7 @@ a:hover {
   width: 100px;
   height: 100px;
 }
+
+#playlist-create {
+  display: none;
+}

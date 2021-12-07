@@ -5232,6 +5232,13 @@ playListName.forEach(function (item, i) {
     document.getElementById('playlistForm').submit();
   });
 });
+var playlistAdd = document.getElementById('playlistAdd');
+var playlistList = document.getElementById('playlist-list');
+var playlistCreate = document.getElementById('playlist-create');
+playlistAdd.addEventListener('click', function () {
+  playlistCreate.style.display = 'block';
+  playlistList.style.display = 'none';
+});
 
 /***/ }),
 

@@ -90,42 +90,63 @@
 
 <div class="container">
     <div class="playlist-modal py-5">
-        <div class="card">
-            <div class="card-header">
-                <h6>Playlist</h6>
-            </div>
-            <div class="card-body">
-                <div class="playlist-item">
+        <div id="playlist-list"><div class="card">
+                <div class="card-header">
+                    <h6>Playlist</h6>
+                </div>
+                <div class="card-body">
+
                     @foreach($playlists as $playlist)
-                        <div class="album-cover">
-                            @foreach($playlist->tracks->take(4) as $track)
-                                <div class="album-image">
-                                    <a href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
-                                        <img src="{{ $track->album->getFirstMediaUrl() }}">
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="album-info">
-                            <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
-                               href="javascript:;">
-                                {{ $playlist->name }}
-                            </a>
-                            <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
+                        <div class="playlist-item mb-4">
+                            <div class="album-cover">
+                                @foreach($playlist->tracks->take(4) as $track)
+                                    <div class="album-image">
+                                        <a href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
+                                            <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="album-info">
+                                <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
+                                   href="javascript:;">
+                                    {{ $playlist->name }}
+                                </a>
+                                <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
+                            </div>
                         </div>
                     @endforeach
-                </div>
-                <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
-                    @csrf
-                    <input id="playlistId" name="playlist_id" type="hidden">
-                    <input id="trackId" name="track_id" type="hidden">
-                </form>
 
-            </div>
-            <div class="card-footer">
-                <a href="#">
-                    <i class="fas fa-plus-circle"></i>
-                </a>
+                    <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
+                        @csrf
+                        <input id="playlistId" name="playlist_id" type="hidden">
+                        <input id="trackId" name="track_id" type="hidden">
+                    </form>
+
+                </div>
+                <div class="card-footer">
+                    <a href="#" id="playlistAdd">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                </div>
+            </div></div>
+        <div id="playlist-create">
+            <div class="container">
+                <div class="new-create">
+                    <div class="card">
+                        <div class="card-header">Playlist Create</div>
+                        <div class="card-body">
+                            <form method="post" action="{{route('playlist.store')}}">
+                                @csrf
+                                <div class="mb-3">
+                                    <label>Name</label>
+                                    <input class="form-control" name="name">
+                                </div>
+                                <button class="btn btn-info">CREATE</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

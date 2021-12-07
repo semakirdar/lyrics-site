@@ -25,3 +25,12 @@ playListName.forEach(function (item, i) {
     });
 });
 
+let playlistAdd = document.getElementById('playlistAdd');
+
+let playlistList = document.getElementById('playlist-list');
+let playlistCreate = document.getElementById('playlist-create');
+
+playlistAdd.addEventListener('click', function () {
+    playlistCreate.style.display = 'block';
+    playlistList.style.display = 'none';
+});
