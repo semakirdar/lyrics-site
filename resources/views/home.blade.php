@@ -20,7 +20,6 @@
                                            href="{{ route('tracks.show', ['trackId' => $track->id]) }}">
                                             {{ $track->name }}
                                         </a>
-
                                     </div>
                                     <div class="text-muted">
                                         <a class="text-decoration-none text-white"

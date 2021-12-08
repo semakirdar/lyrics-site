@@ -82,11 +82,6 @@ class HomeController extends Controller
         }
     }
 
-    public function playlist()
-    {
-
-    }
-
     public function playlistStore(Request $request)
     {
         $playList = Playlist::query()->create([
@@ -97,4 +92,12 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
+
+    public function search(Request $request)
+    {
+        $trackSearch = Track::query()->where('name', 'like', '%' . $request->search . '%')->get();
+        return view('track-search', [
+            'trackSearch' => $trackSearch
+        ]);
+    }
 }

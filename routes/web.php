@@ -75,6 +75,8 @@ Route::post('/playlist/{trackId}/delete', [PlaylistController::class, 'trackDele
 Route::get('/playlist/list', [PlaylistController::class, 'index'])->name('playlist.lists');
 Route::post('/playlist/list/{id}/delete', [PlaylistController::class, 'playlistDelete'])->name('playlist.lists.delete');
 
+Route::post('/search', [HomeController::class, 'search'])->name('search');
+
 Route::get('/api', [HomeController::class, 'api'])->name('api');
 
 
