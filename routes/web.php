@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 //gEU%ckFZ$c7F
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
     Route::get('/track/like/{trackId}', [LikeController::class, 'store'])->name('tracks.like');
     Route::get('/liked/songs', [LikeController::class, 'likedSongs'])->name('liked.songs');

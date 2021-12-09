@@ -11,16 +11,16 @@
                     @endforeach
                 </div>
                 <div class="album-info">
-                    <a class="play-list-name text-decoration-none text-white" data-id="{{$playlist->id}}"
-                       href="{{ route('playlist.show', ['playlistId' => $playlist->id]) }}">
-                        {{ $playlist->name }}
-                    </a>
+
+                    {{ $playlist->name }}
+
                     <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
                     <div class="text-muted">{{ $playlist->user->name }}</div>
                 </div>
             </div>
             <div>
-                <form method="post" action="{{ route('playlist.delete', [ 'id' => $playlist->id]) }}">
+                <form class="playlist-delete" method="post"
+                      action="{{ route('playlist.delete', [ 'id' => $playlist->id]) }}">
                     @csrf
                     <button class="btn btn-info text-white">Playlist Delete</button>
                 </form>

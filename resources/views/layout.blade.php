@@ -66,9 +66,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">
+                            <a class="nav-link logout-a" href="javascript:;">
                                 <i class="fas fa-sign-out-alt"></i>
                             </a>
+                            <form type="hidden" class="logout-form" method="post" action="{{ route('logout') }}">
+                                @csrf
+                            </form>
                         </li>
                     @endauth()
                     @guest()
