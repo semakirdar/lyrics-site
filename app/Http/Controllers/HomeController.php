@@ -15,9 +15,11 @@ class HomeController extends Controller
     {
         $tracks = Track::query()->with('album')->inRandomOrder()->limit(12)->get();
         $albums = Album::query()->with(['artist', 'tracks'])->inRandomOrder()->limit(4)->get();
+        $artists = Artist::query()->limit(4)->get();
         return view('home', [
             'tracks' => $tracks,
-            'albums' => $albums
+            'albums' => $albums,
+            'artists' => $artists
 
         ]);
     }
@@ -82,7 +84,6 @@ class HomeController extends Controller
         }
     }
 
-
     public function search(Request $request)
     {
         $trackSearch = Track::query()->where('name', 'like', '%' . $request->search . '%')->get();
@@ -90,4 +91,6 @@ class HomeController extends Controller
             'trackSearch' => $trackSearch
         ]);
     }
+
+
 }

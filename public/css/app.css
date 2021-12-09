@@ -17898,3 +17898,14 @@ a:hover {
   text-decoration: none;
   color: white;
 }
+
+.artists .artist-item .artist-image {
+  text-align: center;
+}
+.artists .artist-item .artist-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

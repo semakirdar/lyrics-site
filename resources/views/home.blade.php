@@ -77,5 +77,25 @@
                 </div>
             </div>
         </div>
+
+        <div class="artists py-5">
+            <h4>ARTİSTS</h4>
+            <div class="row">
+                @foreach($artists as $artist)
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="artist-item my-4">
+                            <div class="artist-image">
+                                <a href="{{ route('artists.show', ['artistId' => $artist->id]) }}">
+                                    <img class="img-fluid" src="{{ $artist->getFirstMediaUrl() }}">
+                                </a>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p>{{ $artist->name }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </div>
 @endsection
