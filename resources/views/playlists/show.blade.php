@@ -20,13 +20,12 @@
                 </div>
             </div>
             <div>
-                <form method="post" action="{{route('playlist.lists.delete', ['id' => $playlist->id])}}">
+                <form method="post" action="{{ route('playlist.delete', [ 'id' => $playlist->id]) }}">
                     @csrf
                     <button class="btn btn-info text-white">Playlist Delete</button>
                 </form>
             </div>
         </div>
-
 
         <div class="album-detail">
             <div class="tracks mt-5">

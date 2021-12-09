@@ -70,7 +70,12 @@ class PlaylistController extends Controller
 
     public function playlistDelete($id)
     {
-        $playlist = Playlist::query()->where('id', $id)->first();
+
+        $playlist = Playlist::query()->with('tracks')->where('id', $id)->first();
+        $playlistTracks = PlaylistTrack::query()->where('playlist_id', $playlist->id)->get();
+        foreach ($playlistTracks as $playlistTrack) {
+            $playlistTrack->delete();
+        }
         $playlist->delete();
         return redirect()->route('playlist.lists');
     }

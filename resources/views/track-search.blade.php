@@ -11,7 +11,7 @@
                             <p>{{ $track->name }}</p>
                         </a>
 
-                        <p><a href="{{  }}">{{ $track->album->name }}</a> -
+                        <p><a href="{{ route('albums.show')}}">{{ $track->album->name }}</a> -
                             <span class="text-muted"> {{$track->album->artist->name}} </span>
                         </p>
                     </div>

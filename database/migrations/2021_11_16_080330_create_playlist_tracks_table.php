@@ -20,8 +20,8 @@ class CreatePlaylistTracksTable extends Migration
             $table->string('sort_order');
             $table->timestamps();
 
-            $table->foreign('playlist_id')->references('id')->on('playlists')->onDelete('restrict');
-            $table->foreign('track_id')->references('id')->on('tracks')->onDelete('restrict');
+            $table->foreign('playlist_id')->references('id')->on('playlists');
+            $table->foreign('track_id')->references('id')->on('tracks');
 
         });
     }
