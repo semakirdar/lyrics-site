@@ -33,11 +33,10 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('playlist.lists') }}">My
+                        <a class="nav-link " aria-current="page" href="{{ route('playlist.lists') }}">My
                             Playlists
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('liked.songs') }}">Liked Songs</a>
                     </li>

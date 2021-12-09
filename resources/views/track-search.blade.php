@@ -7,8 +7,12 @@
                 <div class="search-item">
                     <img src="{{ $track->album->getFirstMediaUrl() }}">
                     <div>
-                        <p>{{ $track->name }}</p>
-                        <p>{{ $track->album->name}} - <span class="text-muted"> {{$track->album->artist->name}} </span>
+                        <a href="{{ route('tracks.show', ['trackId' => $track->id]) }}">
+                            <p>{{ $track->name }}</p>
+                        </a>
+
+                        <p><a href="{{  }}">{{ $track->album->name }}</a> -
+                            <span class="text-muted"> {{$track->album->artist->name}} </span>
                         </p>
                     </div>
                 </div>

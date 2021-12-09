@@ -22,6 +22,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->route('home');
+        } else {
+            return redirect()->route('login')->withErrors('User Name or Password Wrong');
         }
 
     }

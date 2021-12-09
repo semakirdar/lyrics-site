@@ -82,16 +82,6 @@ class HomeController extends Controller
         }
     }
 
-    public function playlistStore(Request $request)
-    {
-        $playList = Playlist::query()->create([
-            'name' => $request->name,
-            'user_id' => auth()->user()->id
-        ]);
-
-        return redirect()->route('home');
-    }
-
 
     public function search(Request $request)
     {

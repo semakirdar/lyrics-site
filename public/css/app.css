@@ -17894,3 +17894,7 @@ a:hover {
   margin: 0;
   font-size: 14px;
 }
+.search .search-item a {
+  text-decoration: none;
+  color: white;
+}
