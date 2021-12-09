@@ -73,6 +73,7 @@ Route::get('/{artistId}/artists/show', [ArtistController::class, 'show'])->name(
 Route::get('/playlist/{playlistId}/show', [PlaylistController::class, 'show'])->name('playlist.show');
 Route::post('/playlist/{trackId}/delete', [PlaylistController::class, 'trackDelete'])->name('playlist.track.delete');
 Route::post('/playlist/list/{id}/delete', [PlaylistController::class, 'playlistDelete'])->name('playlist.delete');
+Route::get('/all/playlists', [PlaylistController::class, 'allPlaylist'])->name('all.playlists');
 
 Route::post('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/api', [HomeController::class, 'api'])->name('api');

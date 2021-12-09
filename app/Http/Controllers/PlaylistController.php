@@ -79,4 +79,11 @@ class PlaylistController extends Controller
         return redirect()->route('playlist.lists');
     }
 
+    public function allPlaylist()
+    {
+        $playlists = Playlist::query()->paginate(2);
+        return view('playlists.allPlaylists', [
+            'playlists' => $playlists
+        ]);
+    }
 }

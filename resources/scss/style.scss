@@ -319,6 +319,21 @@ a {
     }
 }
 
+.page-item.active {
+    .page-link {
+        background-color: #282828;
+        border-color: #282828;
+    }
+}
+
+.page-item {
+    .page-link {
+        background-color: #545353;
+        border-color: #383737;
+        color: #c4c8cf;
+    }
+}
+
 
 
 
