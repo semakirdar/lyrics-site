@@ -20,6 +20,10 @@ class Album extends Model implements HasMedia
         'name'
     ];
 
+    protected $appends = [
+        'cover'
+    ];
+
     public function artist()
     {
         return $this->belongsTo(Artist::class);
@@ -34,5 +38,16 @@ class Album extends Model implements HasMedia
     {
         return $this->hasMany(Track::class);
     }
+
+    public function getCoverAttribute()
+    {
+
+        if (empty($this->getFirstMediaUrl())) {
+            return asset('images/default-cover.jpeg');
+        } else {
+            return $this->getFirstMediaUrl();
+        }
+    }
+
 
 }

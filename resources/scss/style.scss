@@ -278,7 +278,7 @@ a {
 .search {
     .search-item {
         padding: 10px;
-        border-bottom: 1px solid;
+        border-bottom: 1px solid grey;
         display: flex;
         align-items: center;
 
@@ -323,6 +323,7 @@ a {
     .page-link {
         background-color: #282828;
         border-color: #282828;
+        color: unset;
     }
 }
 
@@ -333,6 +334,8 @@ a {
         color: #c4c8cf;
     }
 }
+
+
 
 
 

@@ -30,7 +30,8 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('all.playlists') }}">Playlists</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('all.playlists') }}">All
+                            Playlists</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -50,6 +51,9 @@
                                    role="button"
                                    aria-expanded="false">Admin</a>
                                 <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('admin.api.artists.add') }}">Artist
+                                            Add</a>
+
                                     <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a>
                                     </li>
                                     <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album
@@ -136,43 +140,44 @@
                                         <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
                                     </div>
                                 </div>
-                            @endforeach
-                        @endif
-
-                        <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
-                            @csrf
-                            <input id="playlistId" name="playlist_id" type="hidden">
-                            <input id="trackId" name="track_id" type="hidden">
-                        </form>
-
                     </div>
-                    <div class="card-footer">
-                        <a href="#" id="playlistAdd">
-                            <i class="fas fa-plus-circle"></i>
-                        </a>
-                    </div>
+                    @endforeach
+                    @endif
+
+                    <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
+                        @csrf
+                        <input id="playlistId" name="playlist_id" type="hidden">
+                        <input id="trackId" name="track_id" type="hidden">
+                    </form>
+
+                </div>
+                <div class="card-footer">
+                    <a href="#" id="playlistAdd">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
                 </div>
             </div>
-            <div id="playlist-create">
-                <div class="container">
-                    <div class="new-create">
-                        <div class="card">
-                            <div class="card-header">Playlist Create</div>
-                            <div class="card-body">
-                                <form method="post" action="{{route('playlist.store')}}">
-                                    @csrf
-                                    <div class="mb-3">
-                                        <label>Name</label>
-                                        <input class="form-control" name="name">
-                                    </div>
-                                    <button class="btn btn-info">CREATE</button>
-                                </form>
-                            </div>
+        </div>
+        <div id="playlist-create">
+            <div class="container">
+                <div class="new-create">
+                    <div class="card">
+                        <div class="card-header">Playlist Create</div>
+                        <div class="card-body">
+                            <form method="post" action="{{route('playlist.store')}}">
+                                @csrf
+                                <div class="mb-3">
+                                    <label>Name</label>
+                                    <input class="form-control" name="name">
+                                </div>
+                                <button class="btn btn-info">CREATE</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endauth
 

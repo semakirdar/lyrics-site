@@ -8,7 +8,7 @@
                     <div>
                         <h3>{{ $track->name }}</h3>
                         <p>{{ $track->album->artist->name }}</p>
-                        <img class="img-fluid" src="{{ $track->album->getFirstMediaUrl() }}">
+                        <img class="img-fluid" src="{{ $track->album->cover }}">
                     </div>
 
                 </div>
@@ -36,7 +36,7 @@
 
                             @foreach($track->album->tracks as $trackItem)
                                 <div class="song-item mb-3">
-                                    <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                    <img src="{{ $track->album->cover }}">
                                     <p>
                                         <a class="text-decoration-none text-white"
                                            href="{{ route('tracks.show', ['trackId' => $trackItem->id]) }}">

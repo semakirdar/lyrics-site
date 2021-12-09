@@ -5,7 +5,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-3">
                     <div class="album-detail-image">
-                        <img class="img-fluid" src="{{ $album->getFirstMediaUrl() }}">
+                        <img class="img-fluid" src="{{ $album->cover }}">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-9">

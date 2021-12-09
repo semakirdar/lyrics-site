@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/tracks/create', [TrackController::class, 'create'])->name('admin.tracks.create');
         Route::post('/admin/tracks/store', [TrackController::class, 'store'])->name('admin.tracks.store');
 
+        Route::get('/admin/api/artists/add', [HomeController::class, 'artistAdd'])->name('admin.api.artists.add');
+
     });
 });
 
@@ -76,7 +78,7 @@ Route::post('/playlist/list/{id}/delete', [PlaylistController::class, 'playlistD
 Route::get('/all/playlists', [PlaylistController::class, 'allPlaylist'])->name('all.playlists');
 
 Route::post('/search', [HomeController::class, 'search'])->name('search');
-Route::get('/api', [HomeController::class, 'api'])->name('api');
+Route::post('/api', [HomeController::class, 'api'])->name('api');
 
 
 

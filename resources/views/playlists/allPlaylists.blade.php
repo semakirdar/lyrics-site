@@ -2,14 +2,16 @@
 @section('content')
 
     <div class="container">
-        <div class="all-playlists">
+        <div class="all-playlists py-5">
             @foreach($playlists as $playlist)
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="playlist-item mb-5">
                         <div class="album-cover">
                             @foreach($playlist->tracks->take(4) as $track)
                                 <div class="album-image">
-                                    <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                    <a href="{{ route('playlist.show', ['playlistId' => $playlist->id ]) }}">
+                                        <img src="{{ $track->album->cover }}">
+                                    </a>
                                 </div>
                             @endforeach
                         </div>
@@ -23,8 +25,5 @@
             @endforeach
         </div>
         {{ $playlists->links() }}
-
     </div>
-
-
 @endsection

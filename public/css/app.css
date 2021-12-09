@@ -17878,7 +17878,7 @@ a:hover {
 
 .search .search-item {
   padding: 10px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
 }
@@ -17913,6 +17913,7 @@ a:hover {
 .page-item.active .page-link {
   background-color: #282828;
   border-color: #282828;
+  color: unset;
 }
 
 .page-item .page-link {

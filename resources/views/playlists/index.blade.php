@@ -14,7 +14,7 @@
                             <div class="album-cover">
                                 @foreach($myPlaylist->tracks->take(4) as $track)
                                     <div class="album-image">
-                                        <img src="{{ $track->album->getFirstMediaUrl() }}">
+                                        <img src="{{ $track->album->cover }}">
                                     </div>
                                 @endforeach
                             </div>
