@@ -38,14 +38,16 @@
 
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="like-button me-3">
-                                <a class="text-white"
+                                <a class="text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                                   title="Like"
                                    href="{{ route('tracks.like', ['trackId' => $track->id]) }}">
                                     <i class="far fa-thumbs-up"></i>
                                 </a>
                             </div>
 
                             <div class="add-play-list-button" data-id="{{$track->id}}">
-                                <a class="text-white" href="javascript:;">
+                                <a class="text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="playlist"
+                                   href="javascript:;">
                                     <i class="far fa-plus-square"></i>
                                 </a>
                             </div>
