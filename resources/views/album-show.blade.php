@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="add-play-list-button" data-id="{{$track->id}}">
-                                <a class="text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="playlist"
+                                <a class="text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="Playlist"
                                    href="javascript:;">
                                     <i class="far fa-plus-square"></i>
                                 </a>

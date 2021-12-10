@@ -5213,7 +5213,7 @@ __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/ind
 
 window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
 
-__webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+var bootstrap = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 
 var Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 
@@ -5281,6 +5281,11 @@ if (document.querySelector('.logout-a')) {
     });
   });
 }
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
 
 /***/ }),
 

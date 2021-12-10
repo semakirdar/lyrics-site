@@ -1,7 +1,7 @@
 require('./bootstrap');
 require('@popperjs/core');
 window.toastr = require('toastr');
-require('bootstrap');
+const bootstrap = require('bootstrap');
 const Swal = require('sweetalert2');
 
 
@@ -79,4 +79,7 @@ if (document.querySelector('.logout-a')) {
     });
 }
 
-
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
