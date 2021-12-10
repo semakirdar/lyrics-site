@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/admin/api/artists/add', [HomeController::class, 'artistAdd'])->name('admin.api.artists.add');
 
+        Route::post('/admin/mix/playlist', [HomeController::class, 'mixPlaylist'])->name('admin.mix.playlist');
+
     });
 });
 

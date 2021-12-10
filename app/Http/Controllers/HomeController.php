@@ -6,6 +6,7 @@ use App\Jobs\ApiJob;
 use App\Models\Album;
 use App\Models\Artist;
 use App\Models\Playlist;
+use App\Models\PlaylistTrack;
 use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -35,8 +36,12 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $trackSearch = Track::query()->where('name', 'like', '%' . $request->search . '%')->get();
+        $albumSearch = Album::query()->where('name', 'like', '%' . $request->search . '%')->get();
+        $artistSearch = Artist::query()->where('name', 'like', '%' . $request->search . '%')->get();
         return view('track-search', [
-            'trackSearch' => $trackSearch
+            'trackSearch' => $trackSearch,
+            'albumSearch' => $albumSearch,
+            'artistSearch' => $artistSearch
         ]);
     }
 
@@ -46,5 +51,29 @@ class HomeController extends Controller
 
     }
 
+    public function mixPlaylist()
+    {
+
+        for ($number = 1; $number < 4; $number++) {
+            $mixPlaylist = Playlist::query()->create([
+                'name' => 'playlist' . $number,
+                'user_id' => '1'
+            ]);
+
+            $tracks = Track::query()->inRandomOrder()->limit(10)->get();
+            foreach ($tracks as $track) {
+                if (isset($track)) {
+                    PlaylistTrack::query()->create([
+                        'track_id' => $track->id,
+                        'playlist_id' => $mixPlaylist->id,
+                        'sort_order' => 1
+                    ]);
+                }
+            }
+        }
+
+
+        return redirect()->back();
+    }
 
 }

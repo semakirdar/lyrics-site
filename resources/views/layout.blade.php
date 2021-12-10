@@ -51,9 +51,16 @@
                                    role="button"
                                    aria-expanded="false">Admin</a>
                                 <ul class="dropdown-menu">
+                                    <li>
+                                        <form method="post" action="{{ route('admin.mix.playlist') }}">
+                                            @csrf
+                                            <button class="dropdown-item">Mix Playlist</button>
+                                        </form>
+
+                                    </li>
                                     <li><a class="dropdown-item" href="{{ route('admin.api.artists.add') }}">Artist
                                             Add</a>
-
+                                    </li>
                                     <li><a class="dropdown-item" href="{{ route('admin.albums.index') }}">Album List</a>
                                     </li>
                                     <li><a class="dropdown-item" href="{{ route('admin.albums.create') }}">Album
@@ -118,7 +125,6 @@
                         <h6>Playlist</h6>
                     </div>
                     <div class="card-body">
-
                         @if(isset($layoutPlaylists))
                             @foreach($layoutPlaylists as $playlist)
                                 <div class="playlist-item mb-4">
@@ -140,45 +146,45 @@
                                         <div class="track-count">{{ count($playlist->tracks)}} Tracks</div>
                                     </div>
                                 </div>
+                            @endforeach
+                        @endif
+
+                        <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
+                            @csrf
+                            <input id="playlistId" name="playlist_id" type="hidden">
+                            <input id="trackId" name="track_id" type="hidden">
+                        </form>
                     </div>
-                    @endforeach
-                    @endif
-
-                    <form method="post" action="{{ route('playlist.track.add') }}" id="playlistForm">
-                        @csrf
-                        <input id="playlistId" name="playlist_id" type="hidden">
-                        <input id="trackId" name="track_id" type="hidden">
-                    </form>
-
-                </div>
-                <div class="card-footer">
-                    <a href="#" id="playlistAdd">
-                        <i class="fas fa-plus-circle"></i>
-                    </a>
+                    <div class="card-footer">
+                        <a href="#" id="playlistAdd">
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="playlist-create">
-            <div class="container">
-                <div class="new-create">
-                    <div class="card">
-                        <div class="card-header">Playlist Create</div>
-                        <div class="card-body">
-                            <form method="post" action="{{route('playlist.store')}}">
-                                @csrf
-                                <div class="mb-3">
-                                    <label>Name</label>
-                                    <input class="form-control" name="name">
-                                </div>
-                                <button class="btn btn-info">CREATE</button>
-                            </form>
+            <div id="playlist-create">
+                <div class="container">
+                    <div class="new-create">
+                        <div class="card">
+                            <div class="card-header">Playlist Create</div>
+                            <div class="card-body">
+                                <form method="post" action="{{route('playlist.store')}}">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label>Name</label>
+                                        <input class="form-control" name="name">
+                                    </div>
+                                    <button class="btn btn-info">CREATE</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
-    </div>
+
 @endauth
 
 <script src="{{ asset('js/app.js') }}"></script>

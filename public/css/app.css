@@ -17821,6 +17821,7 @@ a:hover {
 }
 .playlist-modal .card .card-footer {
   border-top: none;
+  background-color: #424040 !important;
 }
 .playlist-modal .card .card-footer a {
   text-decoration: none;
@@ -17870,10 +17871,6 @@ a:hover {
 
 #playlist-create {
   display: none;
-}
-
-.new-create {
-  background-color: #424040;
 }
 
 .search .search-item {

@@ -16,8 +16,22 @@ class Artist extends Model implements HasMedia
         'country'
     ];
 
+    protected $appends = [
+        'cover'
+    ];
+
     public function tracks()
     {
         return $this->hasMany(Track::class);
     }
+
+    public function getCoverAttribute()
+    {
+        if (empty($this->getFirstMediaUrl())) {
+            return asset('images/images.jpeg');
+        } else {
+            return $this->getFirstMediaUrl();
+        }
+    }
+
 }
