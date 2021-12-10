@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ApiJob;
+use App\Jobs\MixPlaylistCreate;
 use App\Models\Album;
 use App\Models\Artist;
 use App\Models\Playlist;
@@ -54,25 +55,7 @@ class HomeController extends Controller
     public function mixPlaylist()
     {
 
-        for ($number = 1; $number < 4; $number++) {
-            $mixPlaylist = Playlist::query()->create([
-                'name' => 'playlist' . $number,
-                'user_id' => '1'
-            ]);
-
-            $tracks = Track::query()->inRandomOrder()->limit(10)->get();
-            foreach ($tracks as $track) {
-                if (isset($track)) {
-                    PlaylistTrack::query()->create([
-                        'track_id' => $track->id,
-                        'playlist_id' => $mixPlaylist->id,
-                        'sort_order' => 1
-                    ]);
-                }
-            }
-        }
-
-
+        MixPlaylistCreate::dispatch();
         return redirect()->back();
     }
 
